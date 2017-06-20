@@ -14,28 +14,15 @@ module.exports = function()
   //   bot.sendMessage(chatId, resp);
   // });
 
-  // bot.onText(/\/meme (.+)/, (msg, match) => {
-
-  //   const chatId = msg.chat.id;
-  //   const mensagem = match[1];
-
-  //   giphy.search(mensagem, function (err, res) {
-  //     var meme = res.data[0].embed_url;
-  //     bot.sendMessage(chatId, meme);
-  //   });
-  // });
-
   bot.onText(/\/meme (.+)/, (msg, match) => {
 
     const chatId = msg.chat.id;
     const mensagem = match[1];
 
-      giphy.search(mensagem, function (err, res) {
-        var meme = res.data[0].embed_url;
-        console.log(meme);
-        bot.sendDocument(chatId, meme);
-        
-      })
+    giphy.search(mensagem, function (err, res) {
+      var meme = res.data[0].embed_url;
+      bot.sendMessage(chatId, meme);
+    });
   });
 
 }
