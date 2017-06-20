@@ -11,21 +11,24 @@ module.exports = function()
   bot.on('message', (msg) => {
     const chatId = msg.chat.id;
     console.log(msg.text);
-    bot.sendMessage(chatId, 'TUTORIAL\n' + 
-      'Para utilizar o bot digite "/meme" seguido do meme que desejar.');
+    if(msg.text == '/start' || msg.text == '/help'){
+      bot.sendMessage(chatId, 'TUTORIAL\n' + 
+        'Para utilizar o bot digite "/meme" seguido do meme que desejar.\n' + 
+        'Digite "/help" a qualquer momento para acessar este tutorial');
+    }
   });
 
-    // bot.onText(/\/meme (.+)/, (msg, match) => {
+    bot.onText(/\/meme (.+)/, (msg, match) => {
 
-    //   const chatId = msg.chat.id;
-    //   const mensagem = match[1];
+      const chatId = msg.chat.id;
+      const mensagem = match[1];
 
-    //     giphy.search(mensagem, function (err, res) {
-    //       var meme = res.data[0].images.fixed_height.url;
-    //       console.log(meme);
-    //       bot.sendDocument(chatId, meme);
+        giphy.search(mensagem, function (err, res) {
+          var meme = res.data[0].images.fixed_height.url;
+          console.log(meme);
+          bot.sendDocument(chatId, meme);
           
-    //     })
-    // });
+        })
+    });
 
 }
