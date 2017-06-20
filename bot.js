@@ -8,11 +8,6 @@ module.exports = function()
 
   const token = '397219768:AAF4IBRdvLii3AZMT4p76PUcnNIKExCI_p8';
   const bot = new TelegramBot(token, {polling: true});
-  const gen = rn.generator({
-    min: 0, max: 10, integer: true
-  });
-
-  var n = gen();
 
 
   bot.on('message', (msg) => {
@@ -29,6 +24,12 @@ module.exports = function()
 
       const chatId = msg.chat.id;
       const mensagem = match[1];
+      const gen = rn.generator({
+        min: 0, max: 10, integer: true
+      });
+
+      var n = gen();
+      console.log(n);
 
         giphy.search(mensagem, function (err, res) {
           var meme = res.data[n].images.fixed_height.url;
