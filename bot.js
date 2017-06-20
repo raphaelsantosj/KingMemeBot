@@ -8,40 +8,23 @@ module.exports = function()
   const token = '397219768:AAF4IBRdvLii3AZMT4p76PUcnNIKExCI_p8';
   const bot = new TelegramBot(token, {polling: true});
 
-  // bot.onText(/\/echo (.+)/, (msg, match) => {
-  //   const chatId = msg.chat.id;
-  //   const resp = match[1];
-  //   bot.sendMessage(chatId, resp);
-  // });
-
-  // bot.onText(/\/meme (.+)/, (msg, match) => {
-
-  //   const chatId = msg.chat.id;
-  //   const mensagem = match[1];
-
-  //   giphy.search(mensagem, function (err, res) {
-  //     var meme = res.data[0].embed_url;
-  //     bot.sendMessage(chatId, meme);
-  //   });
-  // });
-
-bot.on('/start', (msg) => {
-  const chatId = msg.chat.id;
-
-  bot.sendMessage(chatId, 'Para utilizar o bot digite "/meme" seguido do meme que desejar.');
-});
-
-  bot.onText(/\/meme (.+)/, (msg, match) => {
-
+  bot.on('/start', (msg) => {
     const chatId = msg.chat.id;
-    const mensagem = match[1];
 
-      giphy.search(mensagem, function (err, res) {
-        var meme = res.data[0].images.fixed_height.url;
-        console.log(meme);
-        bot.sendDocument(chatId, meme);
-        
-      })
+    bot.sendMessage(chatId, 'Para utilizar o bot digite "/meme" seguido do meme que desejar.');
   });
+
+    // bot.onText(/\/meme (.+)/, (msg, match) => {
+
+    //   const chatId = msg.chat.id;
+    //   const mensagem = match[1];
+
+    //     giphy.search(mensagem, function (err, res) {
+    //       var meme = res.data[0].images.fixed_height.url;
+    //       console.log(meme);
+    //       bot.sendDocument(chatId, meme);
+          
+    //     })
+    // });
 
 }
