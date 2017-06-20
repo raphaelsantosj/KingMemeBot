@@ -8,7 +8,7 @@ module.exports = function()
   const token = '397219768:AAF4IBRdvLii3AZMT4p76PUcnNIKExCI_p8';
   const bot = new TelegramBot(token, {polling: true});
 
-  bot.on('/start', (msg) => {
+  bot.on('message', (msg) => {
     const chatId = msg.chat.id;
 
     bot.sendMessage(chatId, 'Para utilizar o bot digite "/meme" seguido do meme que desejar.');
