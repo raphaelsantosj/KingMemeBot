@@ -10,8 +10,9 @@ module.exports = function()
 
   bot.on('message', (msg) => {
     const chatId = msg.chat.id;
-
-    bot.sendMessage(chatId, 'Para utilizar o bot digite "/meme" seguido do meme que desejar.');
+    console.log(msg);
+    bot.sendMessage(chatId, 'TUTORIAL\n' + 
+      'Para utilizar o bot digite "/meme" seguido do meme que desejar.');
   });
 
     // bot.onText(/\/meme (.+)/, (msg, match) => {
