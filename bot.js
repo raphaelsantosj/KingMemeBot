@@ -1,19 +1,18 @@
 'use strict';
 const TelegramBot = require('node-telegram-bot-api');
 const giphy = require('giphy-api')('dc6zaTOxFJmzC');
+const rn = require('random-number');
 
 module.exports = function()
 {
 
   const token = '397219768:AAF4IBRdvLii3AZMT4p76PUcnNIKExCI_p8';
   const bot = new TelegramBot(token, {polling: true});
+  const gen = rn.generator({
+    min: 0, max: 10, integer: true
+  });
 
-var rn = require('random-number');
-var gen = rn.generator({
-  min: 998, max: 1000, integer: true
-});
-
-console.log(gen());
+  var n = gen();
 
 
   bot.on('message', (msg) => {
@@ -32,7 +31,7 @@ console.log(gen());
       const mensagem = match[1];
 
         giphy.search(mensagem, function (err, res) {
-          var meme = res.data[0].images.fixed_height.url;
+          var meme = res.data[n].images.fixed_height.url;
           console.log(meme);
           bot.sendDocument(chatId, meme);
           
