@@ -8,12 +8,14 @@ module.exports = function()
   const token = '397219768:AAF4IBRdvLii3AZMT4p76PUcnNIKExCI_p8';
   const bot = new TelegramBot(token, {polling: true});
 
-  var rn = require('random-number');
-  var option = {
-    integer: true
-  }
-  var n = rn(option);
-  console.log(n);
+var rn = require('random-number');
+var gen = rn.generator({
+  min:  998
+, max:  1000
+, integer: true
+}
+console.log(gen());
+
 
   bot.on('message', (msg) => {
     const chatId = msg.chat.id;
