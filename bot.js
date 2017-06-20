@@ -10,7 +10,7 @@ module.exports = function()
 
   var rn = require('random-number');
   rn();
-  console.log(rn());
+  console.log(Number.parseInt(rn());
 
   bot.on('message', (msg) => {
     const chatId = msg.chat.id;
