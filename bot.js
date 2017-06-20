@@ -25,6 +25,12 @@ module.exports = function()
   //   });
   // });
 
+bot.on('/start', (msg) => {
+  const chatId = msg.chat.id;
+
+  bot.sendMessage(chatId, 'Para utilizar o bot digite "/meme" seguido do meme que desejar.');
+});
+
   bot.onText(/\/meme (.+)/, (msg, match) => {
 
     const chatId = msg.chat.id;
