@@ -26,8 +26,7 @@ module.exports = function()
         giphy.search(mensagem, function (err, res) {
           var meme = res.data[1].images.fixed_height.url;
           console.log(meme);
-          const abc = (int) (Math.random()*100);
-          console.log(abc);
+          console.log(math.random(100));
           bot.sendDocument(chatId, meme);
           
         })
