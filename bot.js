@@ -9,8 +9,10 @@ module.exports = function()
   const bot = new TelegramBot(token, {polling: true});
 
   var rn = require('random-number');
-  rn();
-  var n = rn();
+  var option = {
+    integer: true
+  }
+  var n = rn(option);
   console.log(n);
 
   bot.on('message', (msg) => {
