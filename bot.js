@@ -31,7 +31,7 @@ module.exports = function()
     const mensagem = match[1];
 
       giphy.search(mensagem, function (err, res) {
-        var meme = res.data[0].embed_url;
+        var meme = res.data[0].images.fixed_height.url;
         console.log(meme);
         bot.sendDocument(chatId, meme);
         
