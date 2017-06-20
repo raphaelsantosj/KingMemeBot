@@ -10,10 +10,9 @@ module.exports = function()
 
 var rn = require('random-number');
 var gen = rn.generator({
-  min:  998
-, max:  1000
-, integer: true
-}
+  min: 998, max: 1000, integer: true
+});
+
 console.log(gen());
 
 
